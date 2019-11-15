@@ -1,3 +1,8 @@
+# Krita backup files
+*.kra~
+*.png~
+*.jpg~
+
 
 # Godot-specific ignores
 .import/
