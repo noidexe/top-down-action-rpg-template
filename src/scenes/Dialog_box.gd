@@ -17,7 +17,6 @@ func _ready():
 func show_dialog(new_text, speaker):
 	dialog_text.text = new_text
 	$nametag/label.text = speaker
-	total_lines = dialog_text.get_line_count()
 	lines_to_skip = 0
 	dialog_text.lines_skipped = lines_to_skip
 	$anims.play("appear")
@@ -30,7 +29,7 @@ func _input(event):
 				$anims.play("wait")
 			"wait":
 				lines_to_skip += 2
-				if lines_to_skip < total_lines: 
+				if lines_to_skip < dialog_text.get_line_count(): 
 					dialog_text.lines_skipped = lines_to_skip
 					$anims.play("show_text")
 				else:

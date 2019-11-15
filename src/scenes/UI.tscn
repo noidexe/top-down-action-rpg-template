@@ -1,13 +1,14 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://textures/misc/dialog_box.png" type="Texture" id=1]
-[ext_resource path="res://fonts/dialog.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scenes/Dialog_box.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Dialog_box.gd" type="Script" id=2]
+[ext_resource path="res://fonts/dialog.tres" type="DynamicFont" id=3]
 [ext_resource path="res://textures/misc/next_dialog_arrow.png" type="Texture" id=4]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "appear"
 length = 0.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("dialog_text:visible_characters")
 tracks/0/interp = 1
@@ -58,8 +59,34 @@ tracks/3/keys = {
 "method": "emit_signal"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.00472333, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 585 ), Vector2( 0, 427 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("dialog_text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "resized" ],
+"method": "emit_signal"
+} ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "disappear"
 length = 0.1
 tracks/0/type = "value"
@@ -100,9 +127,20 @@ tracks/2/keys = {
 "method": "emit_signal"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 427 ), Vector2( 0, 582 ) ]
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "show_text"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("dialog_text:visible_characters")
@@ -129,8 +167,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "wait"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("next_dialog_arrow:visible")
@@ -164,10 +201,11 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -173.0
+margin_bottom = 1.00024
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -177,18 +215,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 54.0
 margin_top = 45.0
-margin_right = -62.0
-margin_bottom = -34.0
-custom_fonts/font = ExtResource( 2 )
+margin_right = -58.0
+margin_bottom = -38.0
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In semper molestie erat, id aliquam nulla iaculis a. Suspendisse consectetur vehicula consequat. Integer mollis libero sed sem convallis, vitae rutrum metus dapibus. Phasellus purus quam, euismod id diam ut, semper sagittis ipsum. Aenean vel mollis lectus, quis placerat eros. Donec elementum vestibulum augue dignissim vehicula. Mauris ultricies lacus id odio aliquet, eu iaculis urna sodales. "
 autowrap = true
 clip_text = true
+percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="next_dialog_arrow" type="TextureRect" parent="Dialog_box"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -224,16 +264,16 @@ margin_left = -227.5
 margin_top = -21.0
 margin_right = 227.5
 margin_bottom = 22.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Character Name"
 align = 1
 clip_text = true
 
 [node name="anims" type="AnimationPlayer" parent="Dialog_box"]
-anims/appear = SubResource( 4 )
-anims/disappear = SubResource( 5 )
-anims/show_text = SubResource( 2 )
-anims/wait = SubResource( 3 )
+anims/appear = SubResource( 1 )
+anims/disappear = SubResource( 2 )
+anims/show_text = SubResource( 3 )
+anims/wait = SubResource( 4 )
 next/appear = "show_text"
 next/show_text = "wait"
