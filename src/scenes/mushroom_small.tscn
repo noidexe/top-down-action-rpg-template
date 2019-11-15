@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://textures/mushroom_small.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 71.6791
+
+[node name="mushroom_small" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0.914429, -61.8737 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.08072, -26.4776 )
+rotation = 1.5708
+shape = SubResource( 1 )

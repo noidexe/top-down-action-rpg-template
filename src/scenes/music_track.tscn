@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+export(String, FILE, \"*.ogg\") var music_track = \"\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if music_track != \"\":
+		Music.play(music_track)
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="music_track" type="Node"]
+script = SubResource( 1 )
