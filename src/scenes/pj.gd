@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 class_name Player
 
-export(int) var WALK_SPEED = 350
-export(int) var ROLL_SPEED = 1000
+export(int) var WALK_SPEED = 350 # pixels per second
+export(int) var ROLL_SPEED = 1000 # pixels per second
 
 var linear_vel = Vector2()
 var roll_direction = Vector2.DOWN
@@ -73,7 +73,8 @@ func _physics_process(_delta):
 				target_speed += Vector2.UP
 			
 			target_speed *= WALK_SPEED
-			linear_vel = linear_vel.linear_interpolate(target_speed, 0.1)
+			#linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
+			linear_vel = target_speed
 			roll_direction = linear_vel.normalized()
 			
 			_update_facing()
@@ -94,7 +95,8 @@ func _physics_process(_delta):
 				var target_speed = Vector2()
 				target_speed = roll_direction
 				target_speed *= ROLL_SPEED
-				linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
+				#linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
+				linear_vel = target_speed
 				new_anim = "roll"
 			pass
 	
