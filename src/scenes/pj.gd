@@ -50,7 +50,7 @@ func _physics_process(_delta):
 						- int( Input.is_action_pressed("move_left") ) + int( Input.is_action_pressed("move_right") ),
 						-int( Input.is_action_pressed("move_up") ) + int( Input.is_action_pressed("move_down") )
 					).normalized()
-				_update_facing(roll_direction)
+				_update_facing()
 			new_anim = "idle_" + facing
 			pass
 		STATE_WALKING:
@@ -76,7 +76,7 @@ func _physics_process(_delta):
 			linear_vel = linear_vel.linear_interpolate(target_speed, 0.1)
 			roll_direction = linear_vel.normalized()
 			
-			_update_facing(linear_vel)
+			_update_facing()
 			
 			if linear_vel.length() > 5:
 				new_anim = "walk_" + facing
@@ -118,14 +118,13 @@ func goto_idle():
 	new_anim = "idle_" + facing
 	state = STATE_IDLE
 
-func _update_facing(direction_vector):
-	if abs(direction_vector.x) > abs(direction_vector.y):
-		if direction_vector.x < 0:
-			facing = "left"
-		if direction_vector.x > 0:
-			facing = "right"
-	if abs(direction_vector.y) >= abs(direction_vector.x):
-		if direction_vector.y < 0:
-			facing = "up"
-		if direction_vector.y > 0:
-			facing = "down"
+func _update_facing():
+	if Input.is_action_pressed("move_left"):
+		facing = "left"
+	if Input.is_action_pressed("move_right"):
+		facing = "right"
+	if Input.is_action_pressed("move_up"):
+		facing = "up"
+	if Input.is_action_pressed("move_down"):
+		facing = "down"
+
