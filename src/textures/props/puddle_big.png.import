@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/table.png-8bbf28697255c5b50cc2d5a60671ae29.stex"
+path="res://.import/puddle_big.png-54a069d98f599ce9a27a2359b09b9a46.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/table.png"
-dest_files=[ "res://.import/table.png-8bbf28697255c5b50cc2d5a60671ae29.stex" ]
+source_file="res://textures/props/puddle_big.png"
+dest_files=[ "res://.import/puddle_big.png-54a069d98f599ce9a27a2359b09b9a46.stex" ]
 
 [params]
 

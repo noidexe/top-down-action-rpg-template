@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://textures/mushroom_small.png" type="Texture" id=1]
+[ext_resource path="res://textures/props/mushroom_small.png" type="Texture" id=1]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 71.6791

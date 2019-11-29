@@ -12,6 +12,7 @@ func _input(event):
 		visible = enabled
 		get_tree().paused = enabled
 		if enabled:
+			grab_focus()
 			_update_quest_listing()
 			_update_item_listing()
 			
@@ -43,11 +44,13 @@ func _update_item_listing():
 
 
 func _on_Exit_pressed():
-	Globals.save_game()
-	get_tree().quit()
+	quit_game()
 	pass # Replace with function body.
 
 func _notification(what):
 	if what == NOTIFICATION_WM_QUIT_REQUEST:
-		Globals.save_game()
-		get_tree().quit()
+		quit_game()
+		
+func quit_game():
+	Globals.save_game()
+	get_tree().quit()

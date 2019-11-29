@@ -3,6 +3,7 @@ extends Control
 export(String, FILE, "*.tscn") var initial_level = ""
 
 func _ready():
+	grab_focus()
 	if Globals.load_game(true):
 		$continue.disabled = false
 	else:
@@ -34,4 +35,11 @@ func _on_new_game_pressed():
 	else:
 		push_error("Error: initial_level no deberia estar vacio")
 		
+	pass # Replace with function body.
+
+
+
+
+func _on_quit_pressed():
+	get_tree().quit()
 	pass # Replace with function body.

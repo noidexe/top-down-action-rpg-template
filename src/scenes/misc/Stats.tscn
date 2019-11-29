@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/misc/Stats.gd" type="Script" id=1]
+[ext_resource path="res://fonts/dialog.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/stats.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/misc/stats.stylebox" type="StyleBox" id=4]
+
+[node name="Stats" type="PanelContainer"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_neighbour_top = NodePath("VBoxContainer/Exit")
+focus_neighbour_bottom = NodePath("VBoxContainer/Exit")
+focus_mode = 2
+custom_styles/panel = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Paused" type="Label" parent="VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 2 )
+text = "Paused"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 47.0
+margin_right = 984.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Quests" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 490.0
+margin_bottom = 460.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Quests"]
+margin_right = 490.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Quests"
+align = 1
+
+[node name="Details" type="Label" parent="VBoxContainer/HBoxContainer/Quests"]
+margin_top = 47.0
+margin_right = 490.0
+margin_bottom = 460.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Quest 1
+Quest 2
+Quest 3
+Quest 4"
+
+[node name="Inventory" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 494.0
+margin_right = 984.0
+margin_bottom = 460.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Inventory"]
+margin_right = 490.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 2 )
+text = "Inventory"
+align = 1
+
+[node name="Details" type="Label" parent="VBoxContainer/HBoxContainer/Inventory"]
+margin_top = 47.0
+margin_right = 490.0
+margin_bottom = 460.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Item 1
+"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 511.0
+margin_right = 984.0
+margin_bottom = 560.0
+custom_fonts/font = ExtResource( 2 )
+text = "EXIT"
+flat = true
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puddle_small.png-31b5b02932c62bf404959f3720492c71.stex"
+path="res://.import/mushroom_small.png-3ba6d91d27b0b7e27655563707d12b89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/puddle_small.png"
-dest_files=[ "res://.import/puddle_small.png-31b5b02932c62bf404959f3720492c71.stex" ]
+source_file="res://textures/props/mushroom_small.png"
+dest_files=[ "res://.import/mushroom_small.png-3ba6d91d27b0b7e27655563707d12b89.stex" ]
 
 [params]
 

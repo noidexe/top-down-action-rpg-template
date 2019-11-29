@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puddle_big.png-e29a2580a4d79e4aed6e0faf710af81c.stex"
+path="res://.import/mushroom_big.png-11e91dfeba782f03230fd20a5ce3e8df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/puddle_big.png"
-dest_files=[ "res://.import/puddle_big.png-e29a2580a4d79e4aed6e0faf710af81c.stex" ]
+source_file="res://textures/props/mushroom_big.png"
+dest_files=[ "res://.import/mushroom_big.png-11e91dfeba782f03230fd20a5ce3e8df.stex" ]
 
 [params]
 
