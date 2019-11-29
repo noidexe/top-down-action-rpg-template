@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "TextureRect",
 "class": "DialogBox",
 "language": "GDScript",
-"path": "res://scenes/Dialog_box.gd"
+"path": "res://scenes/misc/Dialog_box.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://scenes/enemy.gd"
+"path": "res://scenes/characters/enemy.gd"
 }, {
 "base": "Area2D",
 "class": "Exit",
 "language": "GDScript",
-"path": "res://scenes/exit.gd"
+"path": "res://scenes/misc/exit.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://scenes/pj.gd"
+"path": "res://scenes/characters/pj.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Zelda-like"
-run/main_scene="res://scenes/Outside.tscn"
+run/main_scene="res://scenes/levels/outside.tscn"
 config/icon="res://icon.png"
 
 [autoload]

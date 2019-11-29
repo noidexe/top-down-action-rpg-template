@@ -2,11 +2,11 @@
 
 [ext_resource path="res://textures/house_inside.png" type="Texture" id=1]
 [ext_resource path="res://textures/pj/frames/idle_down0000.png" type="Texture" id=2]
-[ext_resource path="res://scenes/table.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/exit.gd" type="Script" id=4]
-[ext_resource path="res://scenes/pj.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/music_track.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/props/table.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/misc/exit.gd" type="Script" id=4]
+[ext_resource path="res://scenes/characters/pj.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/misc/music_track.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/misc/UI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 706.212, 168.399 )
@@ -28,7 +28,9 @@ var current_dialog = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	# warning-ignore:return_value_discarded
 	connect(\"body_entered\", self, \"_on_body_entered\")
+	# warning-ignore:return_value_discarded
 	connect(\"body_exited\", self, \"_on_body_exited\")
 	pass # Replace with function body.
 
@@ -81,7 +83,7 @@ shape = SubResource( 1 )
 [node name="exit" type="Area2D" parent="."]
 position = Vector2( 8.40967, 795.39 )
 script = ExtResource( 4 )
-to_scene = "res://scenes/Outside.tscn"
+to_scene = "res://scenes/levels/outside.tscn"
 spawnpoint = "house_outside"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]

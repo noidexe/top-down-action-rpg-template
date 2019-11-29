@@ -23,8 +23,13 @@ func _ready():
 	for spawnpoint in spawnpoints:
 		if spawnpoint.name == Globals.spawnpoint:
 			global_position = spawnpoint.global_position
-	Dialogs.connect("dialog_started", self, "_on_dialog_started")
-	Dialogs.connect("dialog_ended", self, "_on_dialog_ended")
+			break
+	if not (
+			Dialogs.connect("dialog_started", self, "_on_dialog_started") == OK and
+			Dialogs.connect("dialog_ended", self, "_on_dialog_ended") == OK ):
+		printerr("Error al conectarse al sistema de dialogos")
+	
+	
 	pass # Replace with function body.
 
 func _physics_process(_delta):

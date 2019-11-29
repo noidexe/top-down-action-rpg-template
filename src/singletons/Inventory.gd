@@ -20,8 +20,6 @@ func add_item(type, amount):
 		inventory[type] = amount
 		emit_signal("item_changed", "added", type, amount)
 		return true
-	return false
-	pass
 	
 func remove_item(type, amount):
 	if inventory.has(type) and inventory[type] > amount:

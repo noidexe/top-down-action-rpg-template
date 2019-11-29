@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://scenes/pj.gd" type="Script" id=1]
+[ext_resource path="res://scenes/characters/pj.gd" type="Script" id=1]
 [ext_resource path="res://textures/pj/pj.png" type="Texture" id=2]
-[ext_resource path="res://scenes/debug_character.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/characters/debug_character.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.8589

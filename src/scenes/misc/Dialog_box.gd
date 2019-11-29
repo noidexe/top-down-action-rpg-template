@@ -3,10 +3,11 @@ class_name DialogBox
 
 onready var dialog_text = $dialog_text
 
+# warning-ignore:unused_signal
 signal dialog_started
+# warning-ignore:unused_signal
 signal dialog_ended
 
-var total_lines = 0
 var lines_to_skip = 0
 
 func _ready():
