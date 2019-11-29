@@ -39,16 +39,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Zelda-like"
-run/main_scene="res://scenes/levels/outside.tscn"
+run/main_scene="res://scenes/levels/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://singletons/Globals.gd"
 Music="*res://singletons/Music.tscn"
 Dialogs="*res://singletons/Dialogs.gd"
 Inventory="*res://singletons/Inventory.gd"
 Quest="*res://singletons/Quest.gd"
+Globals="*res://singletons/Globals.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
