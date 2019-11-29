@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
 var current_track = \"\"
+
+var music_bus
+
+func _ready():
+	music_bus = AudioServer.get_bus_index($A.bus)
+
 
 func play(stream):
 	if current_track == \"a\":
@@ -15,6 +21,13 @@ func play(stream):
 		$anims.play(\"BtoA\")
 		current_track = \"a\"
 	
+func _notification(what):
+	if what == NOTIFICATION_PAUSED:
+		AudioServer.set_bus_effect_enabled(music_bus,0,true)
+		AudioServer.set_bus_volume_db(music_bus,-10)
+	elif what == NOTIFICATION_UNPAUSED:
+		AudioServer.set_bus_effect_enabled(music_bus,0,false)
+		AudioServer.set_bus_volume_db(music_bus,0)
 "
 
 [sub_resource type="Animation" id=2]
@@ -117,7 +130,12 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "pause"
+length = 0.5
+
 [node name="Music" type="Node"]
+pause_mode = 2
 script = SubResource( 1 )
 
 [node name="A" type="AudioStreamPlayer" parent="."]
@@ -130,3 +148,4 @@ bus = "Music"
 [node name="anims" type="AnimationPlayer" parent="."]
 anims/AtoB = SubResource( 2 )
 anims/BtoA = SubResource( 3 )
+anims/pause = SubResource( 4 )
