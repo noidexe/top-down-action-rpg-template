@@ -1,6 +1,5 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://textures/misc/gs77vk91.bmp" type="Texture" id=1]
 [ext_resource path="res://textures/puddle_big.png" type="Texture" id=2]
 [ext_resource path="res://textures/puddle_small.png" type="Texture" id=3]
 [ext_resource path="res://scenes/pj.tscn" type="PackedScene" id=4]
@@ -13,31 +12,7 @@
 [ext_resource path="res://scenes/music_track.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=12]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Sprite
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	show()
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
-
 [node name="Outside" type="Node"]
-
-[node name="circle" type="Sprite" parent="."]
-visible = false
-position = Vector2( -2931.2, -2582.94 )
-scale = Vector2( 4.25618, 4.25618 )
-texture = ExtResource( 1 )
-script = SubResource( 1 )
 
 [node name="puddle_big" type="Sprite" parent="."]
 position = Vector2( 661.445, 950.947 )
