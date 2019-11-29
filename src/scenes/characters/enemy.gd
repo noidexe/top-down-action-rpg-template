@@ -4,6 +4,9 @@ class_name Enemy
 
 export(int) var WALK_SPEED = 350
 export(int) var ROLL_SPEED = 1000
+export(int) var hitpoints = 3
+
+var despawn_fx = preload("res://scenes/misc/despawn_fx.tscn")
 
 var linear_vel = Vector2()
 export(String, "up", "down", "left", "right") var facing = "down"
@@ -11,7 +14,7 @@ export(String, "up", "down", "left", "right") var facing = "down"
 var anim = ""
 var new_anim = ""
 
-enum { STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL }
+enum { STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
 
 var state = STATE_IDLE
 
@@ -81,6 +84,10 @@ func _physics_process(_delta):
 			linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
 			new_anim = "roll"
 			pass
+		STATE_DIE:
+			new_anim = "die"
+		STATE_HURT:
+			new_anim = "hurt"
 	
 
 
@@ -95,13 +102,29 @@ func goto_idle():
 
 func _on_state_changer_timeout():
 	$state_changer.wait_time = rand_range(1.0, 5.0)
-	state = randi() %3
+	#state = randi() %3
+	state = STATE_ATTACK
 	facing = ["left", "right", "up", "down"][randi()%3]
 	pass # Replace with function body.
 
 
 func _on_hurtbox_area_entered(area):
-	if area.name == "player_sword":
-		queue_free()
+	if state != STATE_DIE and area.name == "player_sword":
+		hitpoints -= 1
+		var pushback_direction = (global_position - area.global_position).normalized()
+		move_and_slide( pushback_direction * 5000)
+		state = STATE_HURT
+		$state_changer.start()
+		if hitpoints <= 0:
+			$state_changer.stop()
+			state = STATE_DIE
 	pass # Replace with function body.
 
+func despawn():
+	var despawn_particles = despawn_fx.instance()
+	get_parent().add_child(despawn_particles)
+	despawn_particles.global_position = global_position
+	if has_node("item_spawner"):
+		get_node("item_spawner").spawn()
+	queue_free()
+	pass

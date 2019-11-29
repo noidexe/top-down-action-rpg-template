@@ -4,16 +4,21 @@ class_name Player
 
 export(int) var WALK_SPEED = 350 # pixels per second
 export(int) var ROLL_SPEED = 1000 # pixels per second
+export(int) var hitpoints = 3
 
 var linear_vel = Vector2()
 var roll_direction = Vector2.DOWN
 
+signal health_changed(current_hp)
+
 export(String, "up", "down", "left", "right") var facing = "down"
+
+var despawn_fx = preload("res://scenes/misc/despawn_fx.tscn")
 
 var anim = ""
 var new_anim = ""
 
-enum { STATE_BLOCKED, STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL }
+enum { STATE_BLOCKED, STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HURT }
 
 var state = STATE_IDLE
 
@@ -103,7 +108,10 @@ func _physics_process(_delta):
 				#linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
 				linear_vel = target_speed
 				new_anim = "roll"
-			pass
+		STATE_DIE:
+			new_anim = "die"
+		STATE_HURT:
+			new_anim = "hurt"
 	
 	## UPDATE ANIMATION
 	if new_anim != anim:
@@ -135,3 +143,22 @@ func _update_facing():
 	if Input.is_action_pressed("move_down"):
 		facing = "down"
 
+func despawn():
+	var despawn_particles = despawn_fx.instance()
+	get_parent().add_child(despawn_particles)
+	despawn_particles.global_position = global_position
+	hide()
+	yield(get_tree().create_timer(5.0), "timeout")
+	get_tree().reload_current_scene()
+	pass
+
+func _on_hurtbox_area_entered(area):
+	if state != STATE_DIE and area.is_in_group("enemy_weapons"):
+		hitpoints -= 1
+		emit_signal("health_changed", hitpoints)
+		var pushback_direction = (global_position - area.global_position).normalized()
+		move_and_slide( pushback_direction * 5000)
+		state = STATE_HURT
+		if hitpoints <= 0:
+			state = STATE_DIE
+	pass # Replace with function body.

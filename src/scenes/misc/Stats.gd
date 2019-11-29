@@ -21,9 +21,6 @@ func _update_quest_listing():
 	text += "Started:\n"
 	for quest in Quest.list(Quest.STATUS.STARTED):
 		text += "  %s\n" % quest
-	text += "Complete:\n"
-	for quest in Quest.list(Quest.STATUS.COMPLETE):
-		text += "  %s\n" % quest
 	text += "Failed:\n"
 	for quest in Quest.list(Quest.STATUS.FAILED):
 		text += "  %s\n" % quest

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/characters/npc.gd" type="Script" id=1]
+[ext_resource path="res://textures/pj/frames/idle_down0000.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.564087, 2.50995 ), Vector2( 0.564087, 4.44937 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.944064 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 81.8254, 72.4125 )
+
+[node name="NPC" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0.564087, 2.50995 )
+texture = ExtResource( 2 )
+offset = Vector2( 3.3446, -93.3282 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="anims" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+
+[node name="trigger" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 88.8296 )
+shape = SubResource( 2 )

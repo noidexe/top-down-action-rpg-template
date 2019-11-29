@@ -1,6 +1,6 @@
 extends Node
 
-enum STATUS { NONEXISTENT, STARTED, COMPLETE, DELIVERED, FAILED }
+enum STATUS { NONEXISTENT, STARTED, COMPLETE, FAILED }
 
 signal quest_changed(quest_name, status)
 

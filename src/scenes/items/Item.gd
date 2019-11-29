@@ -18,5 +18,5 @@ func _on_Item_body_entered(body):
 	if body is Player:
 		disconnect("body_entered", self, "_on_Item_body_entered")
 		Inventory.add_item(item_type, amount)
-		queue_free()
+		$anims.play("collected")
 	pass # Replace with function body.
