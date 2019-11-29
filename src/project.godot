@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Zelda-like"
+config/name="Proyecto-Final"
 run/main_scene="res://scenes/levels/menu.tscn"
 config/icon="res://icon.png"
 
