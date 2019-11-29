@@ -4,14 +4,14 @@ signal item_changed(action, type, amount)
 
 var inventory = {}
 
-func get_item(type):
+func get_item(type:String) -> int:
 	if inventory.has(type):
 		return inventory[type]
 	else:
 		return 0
 	pass
 	
-func add_item(type, amount):
+func add_item(type:String, amount:int) -> bool:
 	if inventory.has(type):
 		inventory[type] += amount
 		emit_signal("item_changed", "added", type, amount)
@@ -21,8 +21,8 @@ func add_item(type, amount):
 		emit_signal("item_changed", "added", type, amount)
 		return true
 	
-func remove_item(type, amount):
-	if inventory.has(type) and inventory[type] > amount:
+func remove_item(type:String, amount:int) -> bool:
+	if inventory.has(type) and inventory[type] >= amount:
 		inventory[type] -= amount
 		if inventory[type] == 0:
 			inventory.erase(type)
@@ -32,5 +32,5 @@ func remove_item(type, amount):
 		return false
 	pass
 	
-func list():
+func list() -> Dictionary:
 	return inventory.duplicate()
