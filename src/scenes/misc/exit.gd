@@ -17,6 +17,7 @@ func _on_body_entered(body):
 			push_error("Error al cambiar de escena: to_scene no tiene niguna escena asignada")
 			return false
 		Globals.spawnpoint = spawnpoint
+		Globals.current_level = to_scene
 		if get_tree().change_scene(to_scene) != OK:
 			push_error("Error al cambiar de escena")
 	pass
