@@ -47,6 +47,8 @@ config/icon="res://icon.png"
 Globals="*res://singletons/Globals.gd"
 Music="*res://singletons/Music.tscn"
 Dialogs="*res://singletons/Dialogs.gd"
+Inventory="*res://singletons/Inventory.gd"
+Quest="*res://singletons/Quest.gd"
 
 [display]
 
