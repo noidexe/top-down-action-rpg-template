@@ -3,6 +3,7 @@ extends PanelContainer
 var enabled = false
 
 func _ready():
+	Globals.save_game()
 	get_tree().set_auto_accept_quit(false)
 	hide()
 
