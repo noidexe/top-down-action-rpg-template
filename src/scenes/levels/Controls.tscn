@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/levels/Controls.gd" type="Script" id=1]
+[ext_resource path="res://textures/misc/controls.png" type="Texture" id=2]
+[ext_resource path="res://fonts/dialog.tres" type="DynamicFont" id=3]
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controls" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -114.361
+margin_top = 234.378
+margin_right = -7.36102
+margin_bottom = 283.378
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.364706, 0.364706, 0.364706, 1 )
+text = "Back"
+flat = true
+__meta__ = {
+"_editor_description_": ""
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

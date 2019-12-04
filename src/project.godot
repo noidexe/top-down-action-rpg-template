@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Proyecto-Final"
-run/main_scene="res://scenes/levels/menu.tscn"
+run/main_scene="res://scenes/levels/Intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]

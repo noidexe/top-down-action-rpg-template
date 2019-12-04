@@ -20,11 +20,6 @@ func _on_continue_pressed():
 	pass # Replace with function body.
 
 
-func _on_credits_pressed():
-	#get_tree().change_scene("ruta a escena de creditos")
-	pass
-
-
 func _on_new_game_pressed():
 	if initial_level != "":
 		Globals.current_level = initial_level
@@ -42,4 +37,9 @@ func _on_new_game_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_controls_pressed():
+	get_tree().change_scene("res://scenes/levels/Controls.tscn")
 	pass # Replace with function body.

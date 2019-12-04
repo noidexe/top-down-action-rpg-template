@@ -56,7 +56,7 @@ margin_right = 57.5
 margin_bottom = 96.9168
 focus_neighbour_left = NodePath("../quit")
 focus_neighbour_top = NodePath("../quit")
-focus_neighbour_right = NodePath("../credits")
+focus_neighbour_right = NodePath("../controls")
 focus_neighbour_bottom = NodePath("../continue")
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -78,8 +78,8 @@ margin_right = 50.5
 margin_bottom = 172.626
 focus_neighbour_left = NodePath("../quit")
 focus_neighbour_top = NodePath("../new_game")
-focus_neighbour_right = NodePath("../credits")
-focus_neighbour_bottom = NodePath("../credits")
+focus_neighbour_right = NodePath("../controls")
+focus_neighbour_bottom = NodePath("../controls")
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_disabled = Color( 0.780392, 0.780392, 0.780392, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -91,7 +91,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="credits" type="Button" parent="."]
+[node name="controls" type="Button" parent="."]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -105,7 +105,7 @@ focus_neighbour_top = NodePath("../continue")
 focus_neighbour_right = NodePath("../quit")
 focus_neighbour_bottom = NodePath("../new_game")
 custom_fonts/font = ExtResource( 1 )
-text = "Credits"
+text = "Controls"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,9 +118,9 @@ margin_left = 12.9543
 margin_top = -69.3568
 margin_right = 113.954
 margin_bottom = -20.3568
-focus_neighbour_left = NodePath("../credits")
+focus_neighbour_left = NodePath("../controls")
 focus_neighbour_top = NodePath("../continue")
-focus_neighbour_right = NodePath("../credits")
+focus_neighbour_right = NodePath("../controls")
 focus_neighbour_bottom = NodePath("../new_game")
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
@@ -130,5 +130,5 @@ __meta__ = {
 }
 [connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
