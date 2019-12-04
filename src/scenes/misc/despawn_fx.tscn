@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://textures/pj/smoke_particle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/despawn_fx.gd" type="Script" id=2]
@@ -8,39 +8,27 @@ min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
-
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.383915, 0.8806 ), -1.68353, -1.68353, 0, 0, Vector2( 1, 0.0885999 ), -0.00244711, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 1500.0
-initial_velocity_random = 0.5
-angular_velocity = 360.0
-angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 2 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel = -5000.0
-linear_accel_random = 0.2
-damping = 100.0
-scale_random = 0.5
-scale_curve = SubResource( 4 )
-
-[node name="despawn_fx" type="Particles2D"]
+[node name="despawn_fx" type="CPUParticles2D"]
 position = Vector2( 443.999, 413.999 )
 emitting = false
 amount = 16
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 5 )
 texture = ExtResource( 1 )
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 1500.0
+initial_velocity_random = 0.5
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 1 )
+linear_accel = -5000.0
+linear_accel_random = 0.2
+damping = 100.0
+scale_amount_random = 0.5
+scale_amount_curve = SubResource( 2 )
 script = ExtResource( 2 )
