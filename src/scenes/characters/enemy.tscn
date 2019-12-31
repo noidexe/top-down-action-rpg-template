@@ -1,13 +1,13 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://scenes/characters/enemy.gd" type="Script" id=1]
+[ext_resource path="res://scenes/characters/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://textures/pj/pj.png" type="Texture" id=2]
-[ext_resource path="res://scenes/misc/item_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/misc/ItemSpawner.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 35.8589
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=2]
 resource_name = "die"
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:frame")
@@ -60,7 +60,7 @@ tracks/3/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=3]
 resource_name = "hurt"
 length = 0.1
 tracks/0/type = "value"
@@ -90,8 +90,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle_down"
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -166,8 +165,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -78.0211 ), Vector2( 0, -75.3193 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle_left"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -242,8 +240,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -78.0211 ), Vector2( 0, -75.3193 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle_right"
+[sub_resource type="Animation" id=6]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -318,7 +315,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -78.0211 ), Vector2( 0, -75.3193 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -393,7 +390,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -78.0211 ), Vector2( 0, -75.3193 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -468,8 +465,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "roll"
+[sub_resource type="Animation" id=9]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -547,8 +543,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "slash_down"
+[sub_resource type="Animation" id=10]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -637,8 +632,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -75.3193 ), Vector2( 0, -72.0772 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "slash_left"
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -727,8 +721,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -75.3193 ), Vector2( 0, -72.0772 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "slash_right"
+[sub_resource type="Animation" id=12]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -817,8 +810,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -75.3193 ), Vector2( 0, -72.0772 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "slash_up"
+[sub_resource type="Animation" id=13]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("enemy_sword/slash:disabled")
@@ -907,7 +899,7 @@ tracks/6/keys = {
 "values": [ Vector2( 0, -75.3193 ), Vector2( 0, -72.0772 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -971,7 +963,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1035,7 +1027,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1099,7 +1091,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1163,7 +1155,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="CapsuleShape2D" id=16]
+[sub_resource type="CapsuleShape2D" id=18]
 radius = 53.1112
 height = 67.6021
 
@@ -1188,22 +1180,22 @@ shape = SubResource( 1 )
 
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "reset"
-anims/die = SubResource( 17 )
-anims/hurt = SubResource( 18 )
-anims/idle_down = SubResource( 2 )
-anims/idle_left = SubResource( 3 )
-anims/idle_right = SubResource( 4 )
-anims/idle_up = SubResource( 5 )
-anims/reset = SubResource( 6 )
-anims/roll = SubResource( 7 )
-anims/slash_down = SubResource( 8 )
-anims/slash_left = SubResource( 9 )
-anims/slash_right = SubResource( 10 )
-anims/slash_up = SubResource( 11 )
-anims/walk_down = SubResource( 12 )
-anims/walk_left = SubResource( 13 )
-anims/walk_right = SubResource( 14 )
-anims/walk_up = SubResource( 15 )
+anims/die = SubResource( 2 )
+anims/hurt = SubResource( 3 )
+anims/idle_down = SubResource( 4 )
+anims/idle_left = SubResource( 5 )
+anims/idle_right = SubResource( 6 )
+anims/idle_up = SubResource( 7 )
+anims/reset = SubResource( 8 )
+anims/roll = SubResource( 9 )
+anims/slash_down = SubResource( 10 )
+anims/slash_left = SubResource( 11 )
+anims/slash_right = SubResource( 12 )
+anims/slash_up = SubResource( 13 )
+anims/walk_down = SubResource( 14 )
+anims/walk_left = SubResource( 15 )
+anims/walk_right = SubResource( 16 )
+anims/walk_up = SubResource( 17 )
 
 [node name="enemy_sword" type="Area2D" parent="." groups=[
 "enemy_weapons",
@@ -1222,7 +1214,7 @@ position = Vector2( 0, -78.0211 )
 collision_mask = 32
 
 [node name="col" type="CollisionShape2D" parent="hurtbox"]
-shape = SubResource( 16 )
+shape = SubResource( 18 )
 
 [node name="item_spawner" parent="." instance=ExtResource( 3 )]
 item_type = "Bandit Head"

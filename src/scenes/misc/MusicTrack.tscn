@@ -3,6 +3,11 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
+\"\"\"
+Add this to any level and it'll start playing the indicated song
+as soon as the level loads
+\"\"\"
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = \"text\"

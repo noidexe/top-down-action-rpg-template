@@ -2,6 +2,12 @@ extends KinematicBody2D
 
 class_name Player
 
+"""
+This implements a very rudimentary state machine. There are better implementations
+in the AssetLib if you want to make something more complex. Also it shares code with Enemy.gd
+and probably both should extend some parent script
+"""
+
 export(int) var WALK_SPEED = 350 # pixels per second
 export(int) var ROLL_SPEED = 1000 # pixels per second
 export(int) var hitpoints = 3
@@ -13,7 +19,7 @@ signal health_changed(current_hp)
 
 export(String, "up", "down", "left", "right") var facing = "down"
 
-var despawn_fx = preload("res://scenes/misc/despawn_fx.tscn")
+var despawn_fx = preload("res://scenes/misc/DespawnFX.tscn")
 
 var anim = ""
 var new_anim = ""
@@ -22,7 +28,7 @@ enum { STATE_BLOCKED, STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL, STATE
 
 var state = STATE_IDLE
 
-# Called when the node enters the scene tree for the first time.
+# Move the player to the corresponding spawnpoint, if any and connect to the dialog system
 func _ready():
 	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
 	for spawnpoint in spawnpoints:
@@ -32,10 +38,9 @@ func _ready():
 	if not (
 			Dialogs.connect("dialog_started", self, "_on_dialog_started") == OK and
 			Dialogs.connect("dialog_ended", self, "_on_dialog_ended") == OK ):
-		printerr("Error al conectarse al sistema de dialogos")
-	
-	
-	pass # Replace with function body.
+		printerr("Error connecting to dialog system")
+	pass
+
 
 func _physics_process(_delta):
 	
@@ -133,6 +138,7 @@ func goto_idle():
 	new_anim = "idle_" + facing
 	state = STATE_IDLE
 
+
 func _update_facing():
 	if Input.is_action_pressed("move_left"):
 		facing = "left"
@@ -143,6 +149,7 @@ func _update_facing():
 	if Input.is_action_pressed("move_down"):
 		facing = "down"
 
+
 func despawn():
 	var despawn_particles = despawn_fx.instance()
 	get_parent().add_child(despawn_particles)
@@ -151,6 +158,7 @@ func despawn():
 	yield(get_tree().create_timer(5.0), "timeout")
 	get_tree().reload_current_scene()
 	pass
+
 
 func _on_hurtbox_area_entered(area):
 	if state != STATE_DIE and area.is_in_group("enemy_weapons"):
@@ -161,4 +169,4 @@ func _on_hurtbox_area_entered(area):
 		state = STATE_HURT
 		if hitpoints <= 0:
 			state = STATE_DIE
-	pass # Replace with function body.
+	pass

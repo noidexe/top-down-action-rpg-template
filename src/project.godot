@@ -17,17 +17,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://scenes/characters/enemy.gd"
+"path": "res://scenes/characters/Enemy.gd"
 }, {
 "base": "Area2D",
 "class": "Exit",
 "language": "GDScript",
-"path": "res://scenes/misc/exit.gd"
+"path": "res://scenes/misc/Exit.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://scenes/characters/pj.gd"
+"path": "res://scenes/characters/Player.gd"
 } ]
 _global_script_class_icons={
 "DialogBox": "",
@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Proyecto-Final"
+config/name="Top Down Action RPG"
 run/main_scene="res://scenes/levels/Intro.tscn"
 config/icon="res://icon.png"
 

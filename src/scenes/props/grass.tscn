@@ -2,7 +2,6 @@
 
 [ext_resource path="res://textures/props/grass.png" type="Texture" id=1]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 47.725
 

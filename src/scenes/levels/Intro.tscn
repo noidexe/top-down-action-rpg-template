@@ -163,8 +163,8 @@ func _ready():
 #	pass
 
 
-func _on_anims_animation_finished(anim_name):
-	get_tree().change_scene(\"res://scenes/levels/menu.tscn\")
+func _on_anims_animation_finished(_anim_name):
+	get_tree().change_scene(\"res://scenes/levels/Menu.tscn\")
 	pass # Replace with function body.
 "
 
@@ -211,7 +211,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -326.333
 margin_top = -600.401
-margin_right = 326.333
+margin_right = 326.334
 margin_bottom = -184.734
 texture = ExtResource( 3 )
 expand = true

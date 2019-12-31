@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fonts/stats.tres" type="DynamicFont" id=1]
-[ext_resource path="res://scenes/misc/status_text.gd" type="Script" id=2]
+[ext_resource path="res://scenes/misc/StatusText.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "update"

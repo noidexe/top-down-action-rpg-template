@@ -14,9 +14,9 @@ func _on_continue_pressed():
 	Globals.load_game()
 	if Globals.current_level != "":
 		if get_tree().change_scene(Globals.current_level) != OK:
-			push_error("Error al cambiar de escena")
+			push_error("Error changing scenes")
 	else:
-		push_error("Error: current_level no deberia estar vacio")
+		push_error("Error: current_level shouldn't be empty")
 	pass # Replace with function body.
 
 
@@ -24,11 +24,11 @@ func _on_new_game_pressed():
 	if initial_level != "":
 		Globals.current_level = initial_level
 		if Globals.save_game() == false:
-			push_error("Error al grabar la partida")
+			push_error("Error saving game")
 		if get_tree().change_scene(initial_level) != OK:
-			push_error("Error al cambiar de escena")
+			push_error("Error changing scene")
 	else:
-		push_error("Error: initial_level no deberia estar vacio")
+		push_error("Error: initial_level shouldn't be empty")
 		
 	pass # Replace with function body.
 

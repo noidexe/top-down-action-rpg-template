@@ -2,11 +2,17 @@ extends KinematicBody2D
 
 class_name Enemy
 
+"""
+This implements a very rudimentary state machine. There are better implementations
+in the AssetLib if you want to make something more complex. Also it shares code with Enemy.gd
+and probably both should extend some parent script
+"""
+
 export(int) var WALK_SPEED = 350
 export(int) var ROLL_SPEED = 1000
 export(int) var hitpoints = 3
 
-var despawn_fx = preload("res://scenes/misc/despawn_fx.tscn")
+var despawn_fx = preload("res://scenes/misc/DespawnFX.tscn")
 
 var linear_vel = Vector2()
 export(String, "up", "down", "left", "right") var facing = "down"
@@ -18,14 +24,8 @@ enum { STATE_IDLE, STATE_WALKING, STATE_ATTACK, STATE_ROLL, STATE_DIE, STATE_HUR
 
 var state = STATE_IDLE
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-#	var spawnpoints = get_tree().get_nodes_in_group("spawnpoints")
-#	for spawnpoint in spawnpoints:
-#		if spawnpoint.name == Globals.spawnpoint:
-#			global_position = spawnpoint.global_position
-#	pass # Replace with function body.
 
 func _physics_process(_delta):
 	

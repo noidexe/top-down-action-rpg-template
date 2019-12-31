@@ -2,6 +2,10 @@ extends Area2D
 
 class_name Exit
 
+"""
+Add this to any area2d and it will send the player to the indicated scene and spawnpoint
+"""
+
 export(String, FILE, "*.tscn") var to_scene = ""
 export(String) var spawnpoint = ""
 
@@ -14,10 +18,10 @@ func _ready():
 func _on_body_entered(body):
 	if body is Player:
 		if  to_scene == "":
-			push_error("Error al cambiar de escena: to_scene no tiene niguna escena asignada")
+			push_error("Error changing scenes: to_scene has no assigned scene")
 			return false
 		Globals.spawnpoint = spawnpoint
 		Globals.current_level = to_scene
 		if get_tree().change_scene(to_scene) != OK:
-			push_error("Error al cambiar de escena")
+			push_error("Error changing scene")
 	pass

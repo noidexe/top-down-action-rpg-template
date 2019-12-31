@@ -2,7 +2,6 @@
 
 [ext_resource path="res://textures/props/flower.png" type="Texture" id=1]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 67.3998
 height = 118.201

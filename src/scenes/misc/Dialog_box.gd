@@ -1,6 +1,12 @@
 extends TextureRect
 class_name DialogBox
 
+"""
+Exposes the show_dialog function to the Dialogs singleton.
+Will show a dialog box with the name of the character and
+dialog text, two lines at a time. 
+"""
+
 onready var dialog_text = $dialog_text
 
 # warning-ignore:unused_signal

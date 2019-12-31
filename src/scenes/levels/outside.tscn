@@ -1,18 +1,18 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://scenes/props/mushroom_big.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/props/MushroomBig.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/misc/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/props/grass.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/characters/enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/props/house.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/misc/music_track.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/props/flower.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/characters/pj.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/props/mushroom_small.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/props/Grass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/characters/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/props/House.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/misc/MusicTrack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/props/Flower.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/props/MushroomSmall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://textures/props/puddle_big.png" type="Texture" id=10]
 [ext_resource path="res://textures/props/puddle_small.png" type="Texture" id=11]
 [ext_resource path="res://scenes/items/Item.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/characters/npc.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/characters/Npc.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/misc/Quest.tscn" type="PackedScene" id=14]
 
 [node name="Outside" type="Node"]
@@ -44,15 +44,17 @@ position = Vector2( 2062.51, 2957.82 )
 character_name = "Jorgito"
 
 [node name="Quest" parent="level/Jorgito" instance=ExtResource( 14 )]
-required_amount = 2
-initial_text = "TLDR; bring me 2 Generic Items"
+quest_name = "Life as a Delivery Guy"
+required_amount = 3
+initial_text = "TLDR; bring me 3 Generic Items"
+pending_text = "You forgot? I want 3 Generic Items"
 
 [node name="Character" parent="level" instance=ExtResource( 8 )]
 position = Vector2( 1509.86, 2579.34 )
 
 [node name="house" parent="level" instance=ExtResource( 5 )]
 position = Vector2( 908.151, 406.509 )
-to_scene = "res://scenes/levels/house_inside.tscn"
+to_scene = "res://scenes/levels/HouseInside.tscn"
 
 [node name="house_outside" type="Position2D" parent="level/house" groups=[
 "spawnpoints",

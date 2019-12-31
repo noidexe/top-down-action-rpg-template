@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 63.7874
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "collected"
 length = 0.4
 tracks/0/type = "value"
@@ -49,8 +49,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "reset"
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("sprite:position")
@@ -101,8 +100,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "spawn"
+[sub_resource type="Animation" id=4]
 length = 0.3
 step = 0.01
 tracks/0/type = "value"
@@ -174,6 +172,6 @@ stream = ExtResource( 3 )
 
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "spawn"
-anims/collected = SubResource( 4 )
-anims/reset = SubResource( 2 )
-anims/spawn = SubResource( 3 )
+anims/collected = SubResource( 2 )
+anims/reset = SubResource( 3 )
+anims/spawn = SubResource( 4 )

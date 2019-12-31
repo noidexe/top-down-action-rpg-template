@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/characters/npc.gd" type="Script" id=1]
+[ext_resource path="res://scenes/characters/Npc.gd" type="Script" id=1]
 [ext_resource path="res://textures/pj/frames/idle_down0000.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]

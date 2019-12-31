@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/misc/exit.gd" type="Script" id=1]
+[ext_resource path="res://scenes/misc/Exit.gd" type="Script" id=1]
 [ext_resource path="res://textures/props/house.png" type="Texture" id=2]
 
 

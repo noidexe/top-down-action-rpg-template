@@ -1,12 +1,14 @@
 extends Position2D
 
+"""
+Add this to any node. spawn instances an Item.tscn node with the defined values
+"""
+
 
 var item_scene = preload("res://scenes/items/Item.tscn")
 export(String) var item_type = "Generic Item"
 export(int) var amount = 1
 
-func _ready():
-	pass
 
 func spawn():
 	var item = item_scene.instance()

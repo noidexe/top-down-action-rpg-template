@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+"""
+This can be added to any scene and be use to show some properties for debug purposes
+"""
 
 export(NodePath) var path_to_node = null
 export(Array, String) var properties = []
