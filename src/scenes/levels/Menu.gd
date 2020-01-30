@@ -25,8 +25,9 @@ func _on_new_game_pressed():
 		Globals.current_level = initial_level
 		if Globals.save_game() == false:
 			push_error("Error saving game")
-		if get_tree().change_scene(initial_level) != OK:
-			push_error("Error changing scene")
+		var err = get_tree().change_scene(initial_level)
+		if err != OK:
+			push_error("Error changing scene: %s" % err)
 	else:
 		push_error("Error: initial_level shouldn't be empty")
 		
