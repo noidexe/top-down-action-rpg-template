@@ -305,7 +305,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("sprite:modulate")
@@ -330,6 +330,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("player_sword/slash:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -386,7 +398,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player_sword/slash:position")
@@ -450,18 +462,6 @@ tracks/5/keys = {
 "method": "goto_idle"
 } ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("player_sword:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=11]
 length = 0.3
@@ -475,7 +475,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player_sword/slash:position")
@@ -539,18 +539,6 @@ tracks/5/keys = {
 "method": "goto_idle"
 } ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("player_sword:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=12]
 length = 0.3
@@ -564,7 +552,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player_sword/slash:position")
@@ -628,18 +616,6 @@ tracks/5/keys = {
 "method": "goto_idle"
 } ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("player_sword:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=13]
 length = 0.3
@@ -653,7 +629,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player_sword/slash:position")
@@ -716,18 +692,6 @@ tracks/5/keys = {
 "args": [  ],
 "method": "goto_idle"
 } ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("player_sword:monitorable")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -846,19 +810,15 @@ tracks/1/keys = {
 radius = 53.1112
 height = 67.6021
 
-[node name="Player" type="KinematicBody2D" groups=[
-"player",
-]]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 position = Vector2( 585.638, 309.087 )
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 6.30249, -86.9744 )
 texture = ExtResource( 1 )
-vframes = 4
 hframes = 8
-frame = 12
+vframes = 4
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( -0.882385, -27.9806 )
@@ -867,7 +827,6 @@ shape = SubResource( 1 )
 
 [node name="player_sword" type="Area2D" parent="."]
 position = Vector2( 6.30249, -86.9744 )
-monitorable = false
 collision_layer = 32
 
 [node name="slash" type="CollisionPolygon2D" parent="player_sword"]
@@ -903,7 +862,6 @@ properties = [ "linear_vel", "roll_direction", "facing" ]
 enabled = false
 
 [node name="hurtbox" type="Area2D" parent="."]
-position = Vector2( 0, -3.49902 )
 collision_mask = 32
 __meta__ = {
 "_editor_description_": ""
@@ -915,4 +873,5 @@ shape = SubResource( 18 )
 __meta__ = {
 "_editor_description_": ""
 }
+
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
