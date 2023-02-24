@@ -22,17 +22,26 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	if (
-			active and not
-			dialogs.empty() and
-			event.is_action_pressed("interact") and not
-			Dialogs.active
-		):
-		if has_node("Quest"):
-			var quest_dialog = get_node("Quest").process()
-			if quest_dialog != "":
-				Dialogs.show_dialog(quest_dialog, character_name)
-				return
+	# Bail if npc not active (player not inside the collider)
+	if not active:
+		return
+	# Bail if Dialogs singleton is showing another dialog
+	if Dialogs.active:
+		return
+	# Bail if the event is not a pressed "interact" action
+	if not event.is_action_pressed("interact"):
+		return
+	
+	# If the character is a questgiver delegate getting the text
+	# to the Quest node, show it and end the function
+	if has_node("Quest"):
+		var quest_dialog = get_node("Quest").process()
+		if quest_dialog != "":
+			Dialogs.show_dialog(quest_dialog, character_name)
+			return
+	
+	# If we reached here and there are generic dialogs to show, rotate among them
+	if not dialogs.empty():
 		Dialogs.show_dialog(dialogs[current_dialog], character_name)
 		current_dialog = wrapi(current_dialog + 1, 0, dialogs.size())
 		
