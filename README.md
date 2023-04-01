@@ -1,7 +1,7 @@
 # top-down-action-rpg-template
 Top down action rpg template for Godot Engine
 
-Demo: https://crimsonghostgames.com/elcaballerohueco/ (https is required for savegames to work)
+Demo: https://redmagegames.com/elcaballerohueco/ (https is required for savegames to work)
 
 Sound effects from freesound.org:
 https://freesound.org/people/niamhd00145229/sounds/422709/
