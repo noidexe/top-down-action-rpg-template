@@ -20,7 +20,7 @@ signal dialog_ended
 
 var active = false
 
-var dialog_box = null setget _set_dialog_box
+var dialog_box = null: set = _set_dialog_box
 
 func show_dialog(text:String, speaker:String):
 	if is_instance_valid(dialog_box):
@@ -34,12 +34,12 @@ func _set_dialog_box(node):
 	dialog_box = node
 	
 	if dialog_box.get_script().has_script_signal("dialog_started"):
-		dialog_box.connect("dialog_started", self, "_on_dialog_started")
+		dialog_box.dialog_started.connect(_on_dialog_started)
 	else:
 		push_error("provided node doesn't implement dialog_started signal")
 	
 	if dialog_box.get_script().has_script_signal("dialog_ended"):
-		dialog_box.connect("dialog_ended", self, "_on_dialog_ended")
+		dialog_box.dialog_ended.connect(_on_dialog_ended)
 	else:
 		push_error("provided node doesn't implement dialog_started signal")
 	

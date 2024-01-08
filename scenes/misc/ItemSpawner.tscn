@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scenes/misc/ItemSpawner.gd" type="Script" id=1]
 
-[node name="item_spawner" type="Position2D"]
+[node name="item_spawner" type="Marker2D"]
 script = ExtResource( 1 )

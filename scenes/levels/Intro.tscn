@@ -1,150 +1,156 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://cqjxhlcvohevs"]
 
-[ext_resource path="res://textures/misc/logo-bg.png" type="Texture" id=1]
-[ext_resource path="res://textures/misc/logo-logo.png" type="Texture" id=2]
-[ext_resource path="res://textures/misc/logo-studio.png" type="Texture" id=3]
-[ext_resource path="res://music/logo.wav" type="AudioStream" id=4]
+[ext_resource type="Texture2D" uid="uid://xriucyfo0o30" path="res://textures/misc/logo-bg.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bc8oc41wxytr1" path="res://textures/misc/logo-logo.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dqt0n5ytc0a4r" path="res://textures/misc/logo-studio.png" id="3"]
+[ext_resource type="AudioStream" uid="uid://bub2p8fvv46yx" path="res://music/logo.wav" id="4"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Intro"
 length = 4.5
 step = 0.01
 tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("logo")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"clips": [ {
+"clips": [{
 "end_offset": 0.219207,
 "start_offset": 0.0,
-"stream": ExtResource( 4 )
-} ],
-"times": PoolRealArray( 1.29 )
+"stream": ExtResource("4")
+}],
+"times": PackedFloat32Array(1.29)
 }
+tracks/0/use_blend = true
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("ColorRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.99, 1.49, 3.55, 3.99 ),
-"transitions": PoolRealArray( 0.5, 0.5, 1, 2, 1 ),
+"times": PackedFloat32Array(0, 0.99, 1.49, 3.55, 3.99),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 2, 1),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("logo-logo:rect_position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
+tracks/2/path = NodePath("logo-logo:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.49, 1.6, 1.64, 1.67, 1.83 ),
-"transitions": PoolRealArray( 0, 2, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.49, 1.6, 1.64, 1.67, 1.83),
+"transitions": PackedFloat32Array(0, 2, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 504, 733 ), Vector2( 504, 733 ), Vector2( 446, -45 ), Vector2( 212, 109 ), Vector2( 109, 56 ), Vector2( 212, 109 ) ]
+"values": [Vector2(504, 733), Vector2(504, 733), Vector2(446, -45), Vector2(212, 109), Vector2(109, 56), Vector2(212, 109)]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("logo-logo:rect_rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
+tracks/3/path = NodePath("logo-logo:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1.49, 1.6, 1.64, 1.67, 1.83 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.49, 1.6, 1.64, 1.67, 1.83),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("logo-logo:rect_size")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
+tracks/4/path = NodePath("logo-logo:size")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1.49, 1.6, 1.64, 1.67, 1.83 ),
-"transitions": PoolRealArray( 0, 2, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.49, 1.6, 1.64, 1.67, 1.83),
+"transitions": PackedFloat32Array(0, 2, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 16, 382 ), Vector2( 16, 382 ), Vector2( 132, 689 ), Vector2( 600, 382 ), Vector2( 806, 488 ), Vector2( 600, 382 ) ]
+"values": [Vector2(16, 382), Vector2(16, 382), Vector2(132, 689), Vector2(600, 382), Vector2(806, 488), Vector2(600, 382)]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("logo-studio:rect_position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
+tracks/5/path = NodePath("logo-studio:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 185.667, -300.401 ), Vector2( 185.667, -300.401 ), Vector2( 207, -355.62 ), Vector2( 212, 109 ), Vector2( 196.35, 12.4492 ), Vector2( 133, 59 ), Vector2( 212, 109 ) ]
+"values": [Vector2(185.667, -300.401), Vector2(185.667, -300.401), Vector2(207, -355.62), Vector2(212, 109), Vector2(196.35, 12.4492), Vector2(133, 59), Vector2(212, 109)]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("logo-studio:rect_rotation")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
+tracks/6/path = NodePath("logo-studio:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 4.49367, 0.0, 0.0 ]
+"values": [0.0, 0.0, 0.0, 0.0, 4.49367, 0.0, 0.0]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("logo-studio:rect_size")
-tracks/7/interp = 2
-tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
+tracks/7/path = NodePath("logo-studio:size")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.88, 2.01, 2.04, 2.07, 2.1, 2.13),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 652.667, 415.667 ), Vector2( 652.667, 415.667 ), Vector2( 611, 1452 ), Vector2( 600, 382 ), Vector2( 679, 432.5 ), Vector2( 758, 483 ), Vector2( 600, 382 ) ]
+"values": [Vector2(652.667, 415.667), Vector2(652.667, 415.667), Vector2(611, 1452), Vector2(600, 382), Vector2(679, 432.5), Vector2(758, 483), Vector2(600, 382)]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("logo-bg:rect_position")
-tracks/8/interp = 2
-tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
+tracks/8/path = NodePath("logo-bg:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 2.55, 2.63, 2.68, 2.74 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 2.55, 2.63, 2.68, 2.74),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 212, 491 ), Vector2( 212, 491 ), Vector2( 212, 109 ), Vector2( 141, 64 ), Vector2( 212, 109 ) ]
+"values": [Vector2(212, 491), Vector2(212, 491), Vector2(212, 109), Vector2(141, 64), Vector2(212, 109)]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("logo-bg:rect_rotation")
-tracks/9/interp = 2
-tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
+tracks/9/path = NodePath("logo-bg:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 2.55, 2.63, 2.68, 2.74 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 2.55, 2.63, 2.68, 2.74),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("logo-bg:rect_size")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
+tracks/10/path = NodePath("logo-bg:size")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 2.55, 2.63, 2.68, 2.74 ),
-"transitions": PoolRealArray( 0, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 2.55, 2.63, 2.68, 2.74),
+"transitions": PackedFloat32Array(0, 1, 1, 1, 1),
 "update": 0,
-"values": [ Vector2( 600, 0 ), Vector2( 600, 0 ), Vector2( 600, 382 ), Vector2( 742, 472 ), Vector2( 600, 382 ) ]
+"values": [Vector2(600, 0), Vector2(600, 0), Vector2(600, 382), Vector2(742, 472), Vector2(600, 382)]
 }
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_riwan"]
+_data = {
+"Intro": SubResource("1")
+}
+
+[sub_resource type="GDScript" id="2"]
 script/source = "extends AnimationPlayer
 
 
@@ -164,66 +170,71 @@ func _ready():
 
 
 func _on_anims_animation_finished(_anim_name):
-	get_tree().change_scene(\"res://scenes/levels/Menu.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/levels/Menu.tscn\")
 	pass # Replace with function body.
 "
 
 [node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color(0, 0, 0, 1)
 
 [node name="logo-bg" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = 191.0
-margin_right = 300.0
-margin_bottom = 191.0
-texture = ExtResource( 1 )
-expand = true
+offset_left = -300.0
+offset_top = 191.0
+offset_right = 300.0
+offset_bottom = 191.0
+texture = ExtResource("1")
+expand_mode = 1
 
 [node name="logo-logo" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -8.0
-margin_top = 433.0
-margin_right = 8.0
-margin_bottom = 815.0
-texture = ExtResource( 2 )
-expand = true
+offset_left = -8.0
+offset_top = 433.0
+offset_right = 8.0
+offset_bottom = 815.0
+texture = ExtResource("2")
+expand_mode = 1
 
 [node name="logo-studio" type="TextureRect" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -326.333
-margin_top = -600.401
-margin_right = 326.334
-margin_bottom = -184.734
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -326.333
+offset_top = -600.401
+offset_right = 326.334
+offset_bottom = -184.734
+texture = ExtResource("3")
+expand_mode = 1
 
 [node name="logo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource("4")
 
 [node name="anims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_riwan")
+}
 autoplay = "Intro"
-anims/Intro = SubResource( 1 )
-script = SubResource( 2 )
+script = SubResource("2")
+
 [connection signal="animation_finished" from="anims" to="anims" method="_on_anims_animation_finished"]

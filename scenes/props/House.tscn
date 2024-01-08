@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/misc/Exit.gd" type="Script" id=1]
-[ext_resource path="res://textures/props/house.png" type="Texture" id=2]
+[ext_resource path="res://textures/props/house.png" type="Texture2D" id=2]
 
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends StaticBody2D
 
-export(String, FILE, \"*.tscn\") var to_scene = \"\"
-export(String) var spawnpoint = \"\"
+@export var to_scene = \"\" # (String, FILE, \"*.tscn\")
+@export var spawnpoint: String = \"\"
 
 func _ready():
 	$to_inside.to_scene = to_scene
@@ -30,7 +30,7 @@ extents = Vector2( 117.311, 64.7256 )
 [node name="house" type="StaticBody2D"]
 script = SubResource( 1 )
 
-[node name="house" type="Sprite" parent="."]
+[node name="house" type="Sprite2D" parent="."]
 texture = ExtResource( 2 )
 offset = Vector2( -216.037, -247.153 )
 

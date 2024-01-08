@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dbue8p0cttono"]
 
-[ext_resource path="res://textures/misc/heart.png" type="Texture" id=1]
+[ext_resource type="Texture2D" uid="uid://d0ixmmo0xq2ua" path="res://textures/misc/heart.png" id="1"]
 
 [node name="heart" type="TextureRect"]
-margin_right = 33.0
-margin_bottom = 28.0
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 33.0
+offset_bottom = 28.0
+texture = ExtResource("1")

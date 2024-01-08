@@ -3,9 +3,9 @@ extends Node2D
 
 
 func _ready():
-	Dialogs.connect("dialog_started", self, "_on_dialog_started")
-	Dialogs.connect("dialog_ended", self, "_on_dialog_ended")
-	pass # Replace with function body.
+	Dialogs.dialog_started.connect(_on_dialog_started)
+	Dialogs.dialog_ended.connect(_on_dialog_ended)
+
 
 func _on_dialog_started():
 	for child in get_children():

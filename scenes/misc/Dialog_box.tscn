@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://fonts/dialog.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/dialog.tres" type="FontFile" id=1]
 [ext_resource path="res://scenes/misc/Dialog_box.gd" type="Script" id=2]
-[ext_resource path="res://textures/misc/dialog_box.png" type="Texture" id=3]
-[ext_resource path="res://textures/misc/next_dialog_arrow.png" type="Texture" id=4]
+[ext_resource path="res://textures/misc/dialog_box.png" type="Texture2D" id=3]
+[ext_resource path="res://textures/misc/next_dialog_arrow.png" type="Texture2D" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "appear"
@@ -16,8 +16,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ 0 ]
 }
@@ -28,8 +28,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -40,8 +40,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ true ]
 }
@@ -52,22 +52,22 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ "dialog_started" ],
 "method": "emit_signal"
 } ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath(".:rect_position")
+tracks/4/path = NodePath(".:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.00472333, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.00472333, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 585 ), Vector2( 0, 427 ) ]
 }
@@ -78,8 +78,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.1 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ "resized" ],
 "method": "emit_signal"
@@ -96,8 +96,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -108,8 +108,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.1 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -120,22 +120,22 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ "dialog_ended" ],
 "method": "emit_signal"
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:rect_position")
+tracks/3/path = NodePath(".:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 427 ), Vector2( 0, 582 ) ]
 }
@@ -149,8 +149,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0, 150 ]
 }
@@ -161,8 +161,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -176,8 +176,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
@@ -188,8 +188,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ 150 ]
 }
@@ -198,8 +198,8 @@ tracks/1/keys = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -173.0
-margin_bottom = 1.00024
+offset_top = -173.0
+offset_bottom = 1.00024
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -211,12 +211,12 @@ __meta__ = {
 [node name="dialog_text" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 54.0
-margin_top = 45.0
-margin_right = -58.0
-margin_bottom = -38.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = 54.0
+offset_top = 45.0
+offset_right = -58.0
+offset_bottom = -38.0
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In semper molestie erat, id aliquam nulla iaculis a. Suspendisse consectetur vehicula consequat. Integer mollis libero sed sem convallis, vitae rutrum metus dapibus. Phasellus purus quam, euismod id diam ut, semper sagittis ipsum. Aenean vel mollis lectus, quis placerat eros. Donec elementum vestibulum augue dignissim vehicula. Mauris ultricies lacus id odio aliquet, eu iaculis urna sodales. "
 autowrap = true
 clip_text = true
@@ -231,10 +231,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -121.545
-margin_top = -52.964
-margin_right = -66.5452
-margin_bottom = -6.96399
+offset_left = -121.545
+offset_top = -52.964
+offset_right = -66.5452
+offset_bottom = -6.96399
 texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
@@ -243,10 +243,10 @@ __meta__ = {
 }
 
 [node name="nametag" type="TextureRect" parent="."]
-margin_left = 31.0
-margin_top = 1.0
-margin_right = 524.0
-margin_bottom = 45.0
+offset_left = 31.0
+offset_top = 1.0
+offset_right = 524.0
+offset_bottom = 45.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -258,12 +258,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -227.5
-margin_top = -21.0
-margin_right = 227.5
-margin_bottom = 22.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = -227.5
+offset_top = -21.0
+offset_right = 227.5
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Character Name"
 align = 1
 clip_text = true

@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://fonts/Candy Demo.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Candy Demo.ttf" type="FontFile" id=1]
 [ext_resource path="res://scenes/characters/debug_character.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -18,12 +18,12 @@ __meta__ = {
 }
 
 [node name="stats" type="Label" parent="Control"]
-margin_left = 17.0
-margin_top = 16.0
-margin_right = 285.0
-margin_bottom = 211.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.803922, 0.0784314, 0.0784314, 1 )
+offset_left = 17.0
+offset_top = 16.0
+offset_right = 285.0
+offset_bottom = 211.0
+theme_override_fonts/font = SubResource( 1 )
+theme_override_colors/font_color = Color( 0.803922, 0.0784314, 0.0784314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

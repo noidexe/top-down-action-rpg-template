@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/characters/DespawnFx.gd" type="Script" id=1]
-[ext_resource path="res://textures/pj/smoke_particle.png" type="Texture" id=2]
+[ext_resource path="res://textures/pj/smoke_particle.png" type="Texture2D" id=2]
 
 [sub_resource type="Curve" id=1]
 min_value = -360.0

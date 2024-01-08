@@ -32,7 +32,7 @@ func _update_quest_listing():
 func _update_item_listing():
 	var text = ""
 	var inventory = Inventory.list()
-	if inventory.empty():
+	if inventory.is_empty():
 		text += "[Empty]"
 	for item in inventory:
 		text += "%s x %s\n" % [item, inventory[item]]
@@ -46,7 +46,7 @@ func _on_Exit_pressed():
 	pass # Replace with function body.
 
 func _notification(what):
-	if what == NOTIFICATION_WM_QUIT_REQUEST:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		quit_game()
 		
 func quit_game():

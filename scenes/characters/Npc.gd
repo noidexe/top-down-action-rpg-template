@@ -8,17 +8,17 @@ text Quest.process() returns
 
 var active = false
 
-export(String) var character_name = "Nameless NPC"
-export(Array, String, MULTILINE) var dialogs = ["..."]
+@export var character_name: String = "Nameless NPC"
+@export var dialogs = ["..."] # (Array, String, MULTILINE)
 var current_dialog = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	# warning-ignore:return_value_discarded
-	connect("body_entered", self, "_on_body_entered")
+	body_entered.connect(_on_body_entered)
 	# warning-ignore:return_value_discarded
-	connect("body_exited", self, "_on_body_exited")
+	body_exited.connect(_on_body_exited)
 	pass # Replace with function body.
 
 func _input(event):
@@ -41,7 +41,7 @@ func _input(event):
 			return
 	
 	# If we reached here and there are generic dialogs to show, rotate among them
-	if not dialogs.empty():
+	if not dialogs.is_empty():
 		Dialogs.show_dialog(dialogs[current_dialog], character_name)
 		current_dialog = wrapi(current_dialog + 1, 0, dialogs.size())
 		

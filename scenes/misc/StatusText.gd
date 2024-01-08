@@ -10,9 +10,9 @@ var messages = []
 
 func _ready():
 	hide()
-	Quest.connect("quest_changed", self, "_questlog_updated")
-	Inventory.connect("item_changed", self, "_inventory_updated")
-	pass # Replace with function body.
+	Quest.quest_changed.connect(_questlog_updated)
+	Inventory.item_changed.connect(_inventory_updated)
+
 
 func _questlog_updated(quest_name, status):
 	var txt
@@ -34,14 +34,14 @@ func _inventory_updated(action, type, amount):
 	_queue_message(txt)
 	pass
 
-func _queue_message(text):
-	messages.push_back(text)
+func _queue_message(p_text):
+	messages.push_back(p_text)
 	if not $anims.is_playing():
 		_play_next()
 	pass
 	
 func _play_next():
-	if messages.empty():
+	if messages.is_empty():
 		return
 	else:
 		text = messages.pop_front()

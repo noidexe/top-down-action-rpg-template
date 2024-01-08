@@ -5,21 +5,20 @@ var spawnpoint = ""
 var current_level = ""
 
 func _ready():
-	VisualServer.set_default_clear_color(ColorN("white"))
+	RenderingServer.set_default_clear_color(Color.WHITE)
 
 """
 Really simple save file implementation. Just saving some variables to a dictionary
 """
 func save_game(): 
-	var save_game = File.new()
-	save_game.open("user://savegame.save", File.WRITE)
+	var savefile = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_dict = {}
 	save_dict.spawnpoint = spawnpoint
 	save_dict.current_level = current_level
 	save_dict.inventory = Inventory.list()
 	save_dict.quests = Quest.get_quest_list()
-	save_game.store_line(to_json(save_dict))
-	save_game.close()
+	savefile.store_line(JSON.stringify(save_dict))
+	savefile.close()
 	pass
 
 """
@@ -27,20 +26,21 @@ If check_only is true it will only check for a valid save file and return true o
 restoring any data
 """
 func load_game(check_only=false):
-	var save_game = File.new()
 	
-	if not save_game.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists("user://savegame.save"):
 		return false
 	
-	save_game.open("user://savegame.save", File.READ)
+	var savefile = FileAccess.open("user://savegame.save", FileAccess.READ)
 	
-	var save_dict = parse_json(save_game.get_line())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(savefile.get_line())
+	var save_dict = test_json_conv.get_data()
 	if typeof(save_dict) != TYPE_DICTIONARY:
 		return false
 	if not check_only:
 		_restore_data(save_dict)
 	
-	save_game.close()
+	savefile.close()
 	return true
 
 """

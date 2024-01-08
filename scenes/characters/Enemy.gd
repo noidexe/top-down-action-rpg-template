@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 class_name Enemy
 
@@ -8,14 +8,14 @@ in the AssetLib if you want to make something more complex. Also it shares code 
 and probably both should extend some parent script
 """
 
-export(int) var WALK_SPEED = 350
-export(int) var ROLL_SPEED = 1000
-export(int) var hitpoints = 3
+@export var WALK_SPEED: int = 350
+@export var ROLL_SPEED: int = 1000
+@export var hitpoints: int = 3
 
 var despawn_fx = preload("res://scenes/misc/DespawnFX.tscn")
 
 var linear_vel = Vector2()
-export(String, "up", "down", "left", "right") var facing = "down"
+@export var facing = "down" # (String, "up", "down", "left", "right")
 
 var anim = ""
 var new_anim = ""
@@ -33,7 +33,9 @@ func _physics_process(_delta):
 		STATE_IDLE:
 			new_anim = "idle_" + facing
 		STATE_WALKING:
-			linear_vel = move_and_slide(linear_vel)
+			set_velocity(linear_vel)
+			move_and_slide()
+			linear_vel = velocity
 			
 			var target_speed = Vector2()
 			
@@ -47,7 +49,7 @@ func _physics_process(_delta):
 				target_speed += Vector2.UP
 			
 			target_speed *= WALK_SPEED
-			linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
+			linear_vel = linear_vel.lerp(target_speed, 0.9)
 			
 			new_anim = ""
 			if abs(linear_vel.x) > abs(linear_vel.y):
@@ -70,7 +72,9 @@ func _physics_process(_delta):
 			new_anim = "slash_" + facing
 			pass
 		STATE_ROLL:
-			linear_vel = move_and_slide(linear_vel)
+			set_velocity(linear_vel)
+			move_and_slide()
+			linear_vel = velocity
 			var target_speed = Vector2()
 			if facing == "up":
 				target_speed.y = -1
@@ -81,7 +85,7 @@ func _physics_process(_delta):
 			if facing == "right":
 				target_speed.x = 1
 			target_speed *= ROLL_SPEED
-			linear_vel = linear_vel.linear_interpolate(target_speed, 0.9)
+			linear_vel = linear_vel.lerp(target_speed, 0.9)
 			new_anim = "roll"
 			pass
 		STATE_DIE:
@@ -101,7 +105,7 @@ func goto_idle():
 	state = STATE_IDLE
 
 func _on_state_changer_timeout():
-	$state_changer.wait_time = rand_range(1.0, 5.0)
+	$state_changer.wait_time = randf_range(1.0, 5.0)
 	#state = randi() %3
 	state = STATE_ATTACK
 	facing = ["left", "right", "up", "down"][randi()%3]
@@ -112,7 +116,8 @@ func _on_hurtbox_area_entered(area):
 	if state != STATE_DIE and area.name == "player_sword":
 		hitpoints -= 1
 		var pushback_direction = (global_position - area.global_position).normalized()
-		move_and_slide( pushback_direction * 5000)
+		set_velocity(pushback_direction * 5000)
+		move_and_slide()
 		state = STATE_HURT
 		$state_changer.start()
 		if hitpoints <= 0:
@@ -121,7 +126,7 @@ func _on_hurtbox_area_entered(area):
 	pass # Replace with function body.
 
 func despawn():
-	var despawn_particles = despawn_fx.instance()
+	var despawn_particles = despawn_fx.instantiate()
 	get_parent().add_child(despawn_particles)
 	despawn_particles.global_position = global_position
 	if has_node("item_spawner"):

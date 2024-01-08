@@ -11,16 +11,16 @@ into a kill quest.
 Otherwise you'll have to make a quest system a bit more complex. 
 """
 
-export(String) var quest_name = "Life as a Rappi Guy"
+@export var quest_name: String = "Life as a Rappi Guy"
 
-export(String) var required_item = "Generic Item"
-export(int) var required_amount = 10
-export(String) var reward_item = "Generic Reward"
-export(int) var reward_amount = 1
+@export var required_item: String = "Generic Item"
+@export var required_amount: int = 10
+@export var reward_item: String = "Generic Reward"
+@export var reward_amount: int = 1
 
-export(String, MULTILINE) var initial_text = "TLDR; bring me 10 thingies"
-export(String, MULTILINE) var pending_text = "You forgot? I want 10 thingies"
-export(String, MULTILINE) var delivered_text = "Thank you! Here's your reward.."
+@export var initial_text = "TLDR; bring me 10 thingies" # (String, MULTILINE)
+@export var pending_text = "You forgot? I want 10 thingies" # (String, MULTILINE)
+@export var delivered_text = "Thank you! Here's your reward.." # (String, MULTILINE)
 
 func process() -> String:
 	var quest_status = Quest.get_status(quest_name)

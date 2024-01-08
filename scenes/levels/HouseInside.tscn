@@ -1,31 +1,65 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://ddfr0xxi2hppu"]
 
-[ext_resource path="res://textures/house_inside.png" type="Texture" id=1]
-[ext_resource path="res://scenes/props/Table.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/misc/Exit.gd" type="Script" id=4]
-[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/misc/MusicTrack.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/misc/UI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/characters/Npc.tscn" type="PackedScene" id=8]
+[ext_resource type="Texture2D" uid="uid://bijef2y1b822l" path="res://textures/house_inside.png" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/props/Table.tscn" id="3"]
+[ext_resource type="Script" path="res://scenes/misc/Exit.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://ctd3mgp0s172q" path="res://scenes/characters/Player.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/misc/MusicTrack.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://deqgnj30xx13t" path="res://scenes/misc/UI.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Npc.tscn" id="8"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 135.229, 51.6376 )
+[sub_resource type="Animation" id="1"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.564087, 2.50995), Vector2(0.564087, 4.44937)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.944064)]
+}
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 706.212, 168.399 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i7obc"]
+_data = {
+"idle": SubResource("1")
+}
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 689.221, 157.199 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ttal5"]
+size = Vector2(270.458, 103.275)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(1412.42, 336.798)
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(1378.44, 314.398)
 
 [node name="HouseInside" type="Node"]
 
-[node name="house_inside" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+[node name="house_inside" type="Sprite2D" parent="."]
+texture = ExtResource("1")
 
-[node name="Dadbug" parent="house_inside" instance=ExtResource( 8 )]
-position = Vector2( -0.946228, -67.9575 )
+[node name="Dadbug" parent="house_inside" instance=ExtResource("8")]
+position = Vector2(-0.946228, -67.9575)
 character_name = "Dad Bug"
-dialogs = [ "How do celebrities stay cool? They have many fans.", "Which is faster, hot or cold? Hot, because you can catch a cold.", "How do you organize a space party? You planet.", "Why are skeletons so calm? Because nothing gets under their skin.", "Why are elevator jokes so good? They work on so many levels.", "How do moths swim? Using the butterfly stroke.", "When does a joke become a dad joke? When it becomes apparent.", "Two guys walk into a bar and sit down at a table.
+dialogs = ["How do celebrities stay cool? They have many fans.", "Which is faster, hot or cold? Hot, because you can catch a cold.", "How do you organize a space party? You planet.", "Why are skeletons so calm? Because nothing gets under their skin.", "Why are elevator jokes so good? They work on so many levels.", "How do moths swim? Using the butterfly stroke.", "When does a joke become a dad joke? When it becomes apparent.", "Two guys walk into a bar and sit down at a table.
 The barkeep comes over to them and asks, \"What can I serve you gentlemen?\"
 One of them says to the barkeep, \"I'll bet you a pitcher of your finest beer that I can lick my eye.\"
 The barkeep says, \"I've had guys come in here that could lick their nose but never have I ever seen one that could lick his eye. I'll take that bet.\"
@@ -41,54 +75,58 @@ The barkeep says, \"It'll be worth $100 to see that so I bet you can't do it.\"
 He puts his own $100 on the bar, lines up 10 shot glasses and steps back.
 The drunk whips it out and pees all over the shot glasses, the bar, and the floor.
 The barkeep picks up the two $100 bills with a smile on his face, gets out his towel and starts to wipe it up. He then notices the drunk is smiling and says, \"I just made $100, you just LOST $100, why are you smiling??\"
-The drunk says, \"you see they guy over there I've been drinking with all this time? I just bet him $1,000 that I could come over here, pee all over the bar, and that you'd wipe it up with a smile on your face.\"" ]
+The drunk says, \"you see they guy over there I've been drinking with all this time? I just bet him $1,000 that I could come over here, pee all over the bar, and that you'd wipe it up with a smile on your face.\""]
+
+[node name="anims" parent="house_inside/Dadbug" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_i7obc")
+}
 
 [node name="trigger" parent="house_inside/Dadbug" index="2"]
-position = Vector2( -4.31702, 233.447 )
-shape = SubResource( 1 )
+position = Vector2(-4.31702, 233.447)
+shape = SubResource("RectangleShape2D_ttal5")
 
-[node name="table" parent="house_inside" instance=ExtResource( 3 )]
-position = Vector2( 8.49194, 72.6704 )
+[node name="table" parent="house_inside" instance=ExtResource("3")]
+position = Vector2(8.49194, 72.6704)
 
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
-position = Vector2( 562.864, 22.7747 )
+position = Vector2(562.864, 22.7747)
 rotation = 1.19792
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
-position = Vector2( -526.164, 5.95574 )
+position = Vector2(-526.164, 5.95574)
 rotation = -1.13377
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="exit" type="Area2D" parent="."]
-position = Vector2( 8.40967, 795.39 )
-script = ExtResource( 4 )
+position = Vector2(8.40967, 795.39)
+script = ExtResource("4")
 to_scene = "res://scenes/levels/Outside.tscn"
 spawnpoint = "house_outside"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
-shape = SubResource( 3 )
-
-[node name="Character" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4.19806, 260.181 )
-facing = "up"
+shape = SubResource("3")
 
 [node name="lvl_camera" type="Camera2D" parent="."]
-position = Vector2( 1.10724, 6.72946 )
-current = true
-zoom = Vector2( 1.6, 1.6 )
+position = Vector2(1.10724, 6.72946)
+zoom = Vector2(0.7, 0.7)
 
-[node name="music_track" parent="." instance=ExtResource( 6 )]
+[node name="Character" parent="." instance=ExtResource("5")]
+position = Vector2(4.19806, 260.181)
+facing = "up"
+
+[node name="music_track" parent="." instance=ExtResource("6")]
 music_track = "res://music/a-2-3-groovy-bgm.ogg"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -1.51876, 149.033 )
-scale = Vector2( 0.974315, 0.532109 )
-polygon = PoolVector2Array( -859.39, 362.047, -856.453, 670.362, 855.425, 676.234, 855.425, 356.175 )
-vertex_colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 0.831373, 0, 0, 0, 0.839216, 0, 0, 0, 0 )
+position = Vector2(-1.51876, 149.033)
+scale = Vector2(0.974315, 0.532109)
+polygon = PackedVector2Array(-859.39, 362.047, -856.453, 670.362, 855.425, 676.234, 855.425, 356.175)
+vertex_colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.831373, 0, 0, 0, 0.839216, 0, 0, 0, 0)
 
-[node name="UI" parent="." instance=ExtResource( 7 )]
+[node name="UI" parent="." instance=ExtResource("7")]
 
 [editable path="house_inside/Dadbug"]

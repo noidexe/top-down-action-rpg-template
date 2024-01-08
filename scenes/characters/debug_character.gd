@@ -4,13 +4,13 @@ extends CanvasLayer
 This can be added to any scene and be use to show some properties for debug purposes
 """
 
-export(NodePath) var path_to_node = null
-export(Array, String) var properties = []
-export(bool) var enabled = true setget _set_enabled, _get_enabled
+@export var path_to_node: NodePath
+@export var properties = [] # (Array, String)
+@export var enabled: bool = true: get = _get_enabled, set = _set_enabled
 
 var node = null
 
-onready var stats = $Control/stats
+@onready var stats = $Control/stats
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
